@@ -6,7 +6,7 @@ function StudentDetails(name, rollNo, classInfo, section, marksOfSubjects) {
     this.marksOfSubjects = marksOfSubjects;
   
     this.printTop3Subjects = function () {
-      obj = this.marks
+      obj = this.marksOfSubjects
         array = []
         for (let key in obj) {
             array.push(obj[key])
