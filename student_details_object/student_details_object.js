@@ -6,12 +6,22 @@ function StudentDetails(name, rollNo, classInfo, section, marksOfSubjects) {
     this.marksOfSubjects = marksOfSubjects;
   
     this.printTop3Subjects = function () {
-      const subjects = Object.keys(this.marksOfSubjects);
-      const sortedSubjects = subjects.sort(
-        (a, b) => this.marksOfSubjects[b] - this.marksOfSubjects[a]
-      );
-      const top3 = sortedSubjects.slice(0, 3);
-      console.log('Top 3 Subjects based on marks:', top3);
+      obj = this.marks
+        array = []
+        for (let key in obj) {
+            array.push(obj[key])
+        }
+        array = array.sort(function (a, b) { return b - a });
+        arr = []
+        for (let i = 0; i < 3; i++) {
+            for (let key in obj) {
+                if (obj[key] == array[i]) {
+                    arr.push(key)
+                }
+            }
+        }
+        console.log(arr)
+
     };
   
     this.printReportCard = function () {
