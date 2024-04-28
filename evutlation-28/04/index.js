@@ -12,9 +12,7 @@ var startrowpage = 0;
 
 function nextPage() {
     if(rowsPerPage>90){
-      currentPage = 1;
-      rowsPerPage = 10;
-      startrowpage = 0;
+      nextBtn.style.display = 'none';
     }
     else{
       currentPage = currentPage + 1;
@@ -28,11 +26,13 @@ function nextPage() {
       showdata(data.data);
     });
     }
+    nextBtn.style.display = 'flex';
 }
 
 function prevPage() {
   if (startrowpage<10) {
-    window.location.reload();
+    nextBtn.style.display = 'none';
+    
   } else {
     
   
@@ -47,6 +47,7 @@ function prevPage() {
       showdata(data.data);
     });
   }
+  nextBtn.style.display = 'flex';
 }
 function showdata(data) {
   tbody.innerHTML = "";
