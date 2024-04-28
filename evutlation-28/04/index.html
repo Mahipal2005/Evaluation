@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building a Employee Management System with Filter , Sort and Pagination
+    </title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="main">
+        <select id="Department">
+            <option value="all" >Select Department</option>
+            <option value="hr">HR</option>
+            <option value="finance">Finance</option>
+            <option value="marketing">Marketing</option>
+            <option value="engineering">Engineering</option>
+            <option value="operations">Operations</option>
+        </select>
+        <br>
+        <br>
+        <select id="Gender">
+            <option value="all">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Femail</option>
+        </select>
+        <br>
+        <br>
+        <select id="salary">
+            <option value="all">Select order</option>
+            <option value="LowToHigh">Low to high</option>
+            <option value="HighToLow">High to low</option>
+        </select>
+    </div>
+    <div id="container">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>S. no</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    
+                </tr> -->
+        </table>
+        <div class="pagination">
+            <button id="prevBtn" onclick="prevPage()">Prev</button>
+            <button id="nextBtn" onclick="nextPage()">Next</button>
+          </div>
+    </div>
+</body>
+</html>
+<script src="./index.js"></script>
