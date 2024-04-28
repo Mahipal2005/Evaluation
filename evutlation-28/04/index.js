@@ -11,7 +11,13 @@ var rowsPerPage = 10;
 var startrowpage = 0;
 
 function nextPage() {
-  currentPage = currentPage + 1;
+    if(rowsPerPage>90){
+      currentPage = 1;
+      rowsPerPage = 10;
+      startrowpage = 0;
+    }
+    else{
+      currentPage = currentPage + 1;
   startrowpage = startrowpage + 10;
   rowsPerPage += 10;
   fetch(url)
@@ -21,9 +27,15 @@ function nextPage() {
     .then((data) => {
       showdata(data.data);
     });
+    }
 }
 
 function prevPage() {
+  if (startrowpage<10) {
+    window.location.reload();
+  } else {
+    
+  
   currentPage = currentPage - 1;
   startrowpage = startrowpage - 10;
   rowsPerPage -= 10;
@@ -34,6 +46,7 @@ function prevPage() {
     .then((data) => {
       showdata(data.data);
     });
+  }
 }
 function showdata(data) {
   tbody.innerHTML = "";
