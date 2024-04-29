@@ -6,53 +6,11 @@ let Gender = document.querySelector("#Gender");
 let salary = document.querySelector("#salary");
 let url =
   "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-employees";
-var currentPage = 1;
-var rowsPerPage = 10;
-var startrowpage = 0;
 
-function nextPage() {
-    if(rowsPerPage>90){
-      nextBtn.style.display = 'none';
-    }
-    else{
-      currentPage = currentPage + 1;
-  startrowpage = startrowpage + 10;
-  rowsPerPage += 10;
-  fetch(url)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      showdata(data.data);
-    });
-    }
-    nextBtn.style.display = 'flex';
-}
 
-function prevPage() {
-  if (startrowpage<10) {
-    nextBtn.style.display = 'none';
-    
-  } else {
-    
-  
-  currentPage = currentPage - 1;
-  startrowpage = startrowpage - 10;
-  rowsPerPage -= 10;
-  fetch(url)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      showdata(data.data);
-    });
-  }
-  nextBtn.style.display = 'flex';
-}
 function showdata(data) {
   tbody.innerHTML = "";
   data.forEach((element, i) => {
-    if (rowsPerPage > i && startrowpage <= i) {
       let tr = document.createElement("tr");
       let Sno = document.createElement("td");
       Sno.innerHTML = element.id;
@@ -71,7 +29,6 @@ function showdata(data) {
       tr.appendChild(department);
       tr.appendChild(salary);
       tbody.appendChild(tr);
-    }
   });
 }
 
